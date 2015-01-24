@@ -3,14 +3,21 @@ using System.Collections;
 
 public class Bike : MonoBehaviour {
 
+	public float speed;
+	private float currentSpeed;
+
 	// Use this for initialization
 	void Start () {
 		Input.gyro.enabled = true;
+		currentSpeed = speed;
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		float dt = Time.deltaTime;
+		transform.parent.Translate(dt*currentSpeed, 0, 0);
+
 		Move ();
 	}
 
