@@ -86,7 +86,6 @@ GameObject:
   - 92: {fileID: 21971201}
   - 124: {fileID: 21971200}
   - 81: {fileID: 21971199}
-  - 114: {fileID: 21971204}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -160,19 +159,6 @@ Transform:
   - {fileID: 1295327359}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &21971204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 21971198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1aeaca13462d5e48929b442910fe181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  accel: 2
 --- !u!1 &233699432
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +307,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgprefab: {fileID: 425108, guid: 6fe71b8f67a58854e9da1bb7f3897314, type: 2}
   bgsprite: {fileID: 21300000, guid: 6bc12ddd308c9e143b1c40df86ab7e37, type: 3}
-  spriteHeight: 0
+  jumpprefab: {fileID: 414706, guid: c20dae2f1a16e3148847befd7b28d19d, type: 2}
+  bushprefab: {fileID: 450922, guid: 0981b869b4595464aa9df29806d3c048, type: 2}
+  treeprefab: {fileID: 458272, guid: 4b89d72c0cea4aa4f9b7814ad3d31c6e, type: 2}
 --- !u!4 &822142150
 Transform:
   m_ObjectHideFlags: 0
@@ -345,6 +333,7 @@ GameObject:
   - 114: {fileID: 1295327358}
   - 61: {fileID: 1295327360}
   - 50: {fileID: 1295327361}
+  - 82: {fileID: 1295327362}
   m_Layer: 0
   m_Name: Skiier
   m_TagString: Untagged
@@ -363,7 +352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c97b6f66f4b2546993824dc409292a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpDuration: 0
+  jumpDuration: 1.5
+  speed: 3
+  accel: 5
 --- !u!4 &1295327359
 Transform:
   m_ObjectHideFlags: 0
@@ -407,6 +398,64 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
+--- !u!82 &1295327362
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1295327357}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: e0a4cd71acc31de4088175f0accf558c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1358207122
 GameObject:
   m_ObjectHideFlags: 0
