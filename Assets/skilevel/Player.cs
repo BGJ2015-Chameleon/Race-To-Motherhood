@@ -13,12 +13,21 @@ public class Player : MonoBehaviour {
 	private bool isJumping;
 	private float tJumpLeft;
 	private GameObject camera;
+	private Transform shadow;
+
+	private Vector3 shadowScale;
+	private Vector3 shadowPos;
 
 	void Start () {
 		Input.gyro.enabled = true;
 		isJumping = false;
+		
+		shadow = transform.Find ("Shadow");
 
 		currentSpeed = speed;
+
+		shadowScale = shadow.localScale;
+		shadowPos = shadow.localPosition;
 	}
 
 	float clamp(float v, float min, float max){
@@ -30,6 +39,7 @@ public class Player : MonoBehaviour {
 		return v;
 	} 
 
+
 	void Update () {
 		float dt = Time.deltaTime;
 
@@ -40,7 +50,12 @@ public class Player : MonoBehaviour {
 			Move ();
 		} else {
 			tJumpLeft -= dt;
+			float jumpProg = (tJumpLeft/jumpDuration);
+			float sOffset = Mathf.Abs (jumpProg*2-1)-1;
+			shadow.localPosition = shadowPos + new Vector3(0,sOffset/6,0);
+			shadow.localScale = shadowScale/(-sOffset/3+1);
 			isJumping = tJumpLeft > 0;
+
 			if(!isJumping){
 				transform.Find ("TrailLeft").GetComponent<TrailRenderer> ().enabled = true;
 				transform.Find ("TrailRight").GetComponent<TrailRenderer> ().enabled = true;
