@@ -1,34 +1,100 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Backround : MonoBehaviour {
-	public Sprite[] tiles;
-	SpriteRenderer sr;
-	Transform tr;
-	Camera camera;
-	Vector3 scale;
+	public Transform Terrain;
+	public Transform EmptyBenchPrefab;
+	public Transform OldWomanBenchPrefab;
+	public Transform SelfieGirlPrefab;
+	public Transform TrahsBinPrefab;
+
+	LinkedList<Transform> bgspritelist;
+
+	private float spriteWidth;
+	private int spriteCount;
+
+	GameObject camera;
+
 
 	// Use this for initialization
 	void Start () {
+		camera = GameObject.FindWithTag("MainCamera");
+		InitBGSprite ();
+	}
 
-		camera = Camera.main;
-		sr = GetComponent <SpriteRenderer> ();
-		tr = GetComponent <Transform> ();
-		sr.sprite = tiles [0];
-
-		float cameraHeight = camera.orthographicSize * 2f;
-		float cameraWidth = cameraHeight / Screen.height * Screen.width;
-		scale = new Vector3 (cameraWidth / tiles[0].bounds.size.x, cameraHeight / tiles[0].bounds.size.y, 1f);
-		tr.localScale = scale;
-
+	void InitBGSprite(){
+		bgspritelist = new LinkedList<Transform> ();
+		SpriteRenderer sprite = Terrain.GetComponent <SpriteRenderer> ();
+		spriteWidth = sprite.bounds.size.x;
+		spriteCount = 0;
+		for (int i = -3; i < 3; i++) {
+			Transform clone = Instantiate (Terrain) as Transform;
+			clone.Translate(i*spriteWidth,0,0);
+			bgspritelist.AddFirst(clone);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		float cameraHeight = camera.orthographicSize * 2f;
-		float cameraWidth = cameraHeight / Screen.height * Screen.width;
-		scale = new Vector3 (cameraWidth / tiles[0].bounds.size.x, cameraHeight / tiles[0].bounds.size.y, 1f);
-		tr.localScale = scale;
+		UpdateBGSprite ();
+	}
+
+	void NewChunk(Transform clone) {
+		
+
+		if (Random.value > 0.001) {
+
+			Transform Bench;
+
+			if(Random.value > 0.5){
+				Bench = Instantiate (OldWomanBenchPrefab) as Transform;
+			}
+			else {
+				Bench = Instantiate (EmptyBenchPrefab) as Transform;
+			}
+			Bench.SetParent (clone);
+			Bench.transform.localPosition = new Vector3 (0, 0.4f, -2);
+			//EmptyBench.GetChild((int)Mathf.Round(Random.value)).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+		}
+
+		if (Random.value > 0.001) {
+			Transform SelfieGirl = Instantiate (SelfieGirlPrefab) as Transform;
+			SelfieGirl.SetParent (clone);
+			SelfieGirl.transform.localPosition = new Vector3 (Random.Range (-0.5f, 0.5f), Random.Range (-0.483f, 0.378f), 11);
+			//EmptyBench.GetChild((int)Mathf.Round(Random.value)).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+		}
+
+		if (Random.value > 0.001) {
+			Transform Trashbin = Instantiate (TrahsBinPrefab) as Transform;
+			Trashbin.SetParent (clone);
+			Trashbin.transform.localPosition = new Vector3 (Random.Range (-0.5f, 0.5f), Random.Range (-0.3f, -0.524f), 0);
+			//EmptyBench.GetChild((int)Mathf.Round(Random.value)).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+		}
+
+
+
+		
+
+	}
+
+	void UpdateBGSprite(){
+
+		float camX = ((camera.transform.position.x)/spriteWidth)+1;
+		
+		int newSpriteCount = (int)camX;
+		if (newSpriteCount > spriteCount) {
+			Transform clone = Instantiate (Terrain) as Transform;
+			clone.Translate(spriteWidth*(newSpriteCount+1),0,0);
+			bgspritelist.AddFirst(clone);
+			Destroy(bgspritelist.Last.Value.gameObject);
+			bgspritelist.RemoveLast();
+			
+			NewChunk(clone);
+		}
+		
+		spriteCount = newSpriteCount;
+		
 	}
 	
 
