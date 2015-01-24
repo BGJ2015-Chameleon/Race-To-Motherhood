@@ -8,6 +8,12 @@ public class Player : MonoBehaviour {
 	public float speed;
 	public float accel;
 
+
+	public AudioClip[] sounds;
+
+	private GameObject redGirl;
+	private GameObject bluGirl;
+
 	private float currentSpeed;
 
 	private bool isJumping;
@@ -17,6 +23,7 @@ public class Player : MonoBehaviour {
 
 	private Vector3 shadowScale;
 	private Vector3 shadowPos;
+
 
 	void Start () {
 		Input.gyro.enabled = true;
@@ -28,23 +35,33 @@ public class Player : MonoBehaviour {
 
 		shadowScale = shadow.localScale;
 		shadowPos = shadow.localPosition;
+
+		redGirl = transform.Find ("RedGirl").gameObject;
+		bluGirl = transform.Find ("BlueGirl").gameObject;
+
+		Jump (); // for dramatic effect
+		audio.PlayOneShot (sounds [1]);
 	}
 
 	float clamp(float v, float min, float max){
 		if (v < min) {
-				return min;
+			return min;
 		} else if (v > max) {
 			return max;
 		}
 		return v;
 	} 
-
-
+	
 	void Update () {
 		float dt = Time.deltaTime;
 
-		transform.parent.Translate(0, -dt*currentSpeed, 0);
+		Camera.main.transform.Translate(0, -dt*currentSpeed, 0);
 		currentSpeed += (accel/10)*dt;
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			redGirl.GetComponent<Animator>().SetTrigger("Switch");
+			bluGirl.GetComponent<Animator>().SetTrigger("Switch");
+		}
 
 		if (!isJumping) {
 			Move ();
@@ -60,6 +77,7 @@ public class Player : MonoBehaviour {
 				transform.Find ("TrailLeft").GetComponent<TrailRenderer> ().enabled = true;
 				transform.Find ("TrailRight").GetComponent<TrailRenderer> ().enabled = true;
 				rigidbody2D.WakeUp();
+				audio.PlayOneShot(sounds[2]);
 
 			}
 		}
@@ -79,7 +97,6 @@ public class Player : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D other){
-
 		switch (other.name) {
 			case "Jump":
 				if (!isJumping) {
@@ -90,17 +107,19 @@ public class Player : MonoBehaviour {
 				if (isJumping) {
 						// points?
 				} else {
-						currentSpeed /= 2;
+					currentSpeed /= 2;
+					audio.PlayOneShot (sounds [1]);
 				}
 				break;
 			case "Tree":
-			currentSpeed /= 4;
+				audio.PlayOneShot (sounds [1]);
+				currentSpeed /= 4;
 				break;
 		}
 	}
 
 	void Jump(){
-		audio.Play ();
+		audio.PlayOneShot( sounds [0] );
 		isJumping = true;
 		tJumpLeft = jumpDuration;
 		transform.Find ("TrailLeft").GetComponent<TrailRenderer> ().enabled = false;

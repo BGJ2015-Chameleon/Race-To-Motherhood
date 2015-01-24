@@ -26,7 +26,6 @@ GameObject:
   - 4: {fileID: 414706}
   - 61: {fileID: 6111620}
   - 114: {fileID: 11410688}
-  - 114: {fileID: 11411620}
   m_Layer: 0
   m_Name: Jump
   m_TagString: Untagged
@@ -140,17 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myName: Jump
---- !u!114 &11411620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb18b302d0674e04b9aa1aa7940d90ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21211620
 SpriteRenderer:
   m_ObjectHideFlags: 1

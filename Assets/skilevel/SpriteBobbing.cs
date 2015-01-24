@@ -23,8 +23,6 @@ public class SpriteBobbing : MonoBehaviour {
 		time += dt;
 
 		float bob = (int)(time/ms)%2;
-		print (bob);
-
 		if (old != bob){
 			transform.localPosition = pos + new Vector3(0,amount*bob,0);
 			old = bob;

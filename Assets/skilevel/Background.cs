@@ -9,6 +9,7 @@ public class Background : MonoBehaviour {
 	public Transform jumpprefab;
 	public Transform bushprefab;
 	public Transform treeprefab;
+	public Transform cottageprefab;
 
 	private GameObject camera;
 	private float spriteHeight;
@@ -32,6 +33,11 @@ public class Background : MonoBehaviour {
 			clone.Translate(0,i*spriteHeight,0);
 			bgspritelist.AddFirst(clone);
 		}
+
+		Transform cottage = Instantiate (cottageprefab) as Transform;
+
+		cottage.SetParent (bgspritelist.First.Next.Value);
+		cottage.localPosition = new Vector3 (0,0,-19);
 	}
 
 
