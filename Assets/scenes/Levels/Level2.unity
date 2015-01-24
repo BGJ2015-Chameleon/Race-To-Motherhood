@@ -124,7 +124,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1366769891}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!95 &540054357
 Animator:
   serializedVersion: 3
@@ -140,48 +140,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &666503107
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 666503109}
-  - 114: {fileID: 666503108}
-  m_Layer: 0
-  m_Name: Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &666503108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 666503107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31eb9174c8325694b88737a6ae1e97f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgprefab: {fileID: 437338, guid: 12ef01a0924ec474083a72d4cec30bde, type: 2}
-  EmptyBenchPrefab: {fileID: 411424, guid: 4a628a33d1aab7c45a7b14cbb7055e9e, type: 2}
-  SelfieGirlPrefab: {fileID: 488734, guid: b35366d6d9480b24aa1d30aa70f339d2, type: 2}
---- !u!4 &666503109
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 666503107}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.00917101, y: 3.4739387, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
 --- !u!1 &765526488
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,8 +332,8 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 1019561813}
-  - {fileID: 540054356}
   - {fileID: 2059838409}
+  - {fileID: 540054356}
   m_Father: {fileID: 765526493}
   m_RootOrder: 0
 --- !u!50 &1366769892
@@ -402,8 +360,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .419865817, y: .209462434}
-  m_Center: {x: .000210618979, y: .0451893173}
+  m_Size: {x: .430560112, y: .0906366482}
+  m_Center: {x: -.00513653783, y: -.0142236529}
 --- !u!114 &1366769894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +374,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+--- !u!1 &1455622635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1455622636}
+  - 114: {fileID: 1455622637}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1455622636
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1455622635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .965238333, y: .392074317, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+--- !u!114 &1455622637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1455622635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb9174c8325694b88737a6ae1e97f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Terrain: {fileID: 437338, guid: 12ef01a0924ec474083a72d4cec30bde, type: 2}
+  EmptyBenchPrefab: {fileID: 411424, guid: 4a628a33d1aab7c45a7b14cbb7055e9e, type: 2}
+  OldWomanBenchPrefab: {fileID: 488890, guid: a2096dd1cfe9ff0459fc4d36b5a0ea19, type: 2}
+  SelfieGirlPrefab: {fileID: 488734, guid: b35366d6d9480b24aa1d30aa70f339d2, type: 2}
+  TrahsBinPrefab: {fileID: 471120, guid: f79f5371e218bca4ea360f3b7ec63e99, type: 2}
 --- !u!1 &2059838408
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,11 +442,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2059838408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.070100002, y: .0697999969, z: 10}
+  m_LocalPosition: {x: -.0700999722, y: .0697999969, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1366769891}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!212 &2059838410
 SpriteRenderer:
   m_ObjectHideFlags: 0
