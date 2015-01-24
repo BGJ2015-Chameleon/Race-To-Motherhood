@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class exitscript : MonoBehaviour {
+public class UIQuitGame : MonoBehaviour {
 
 	public void QuitGame()
 	{
