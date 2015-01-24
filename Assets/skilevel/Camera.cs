@@ -4,15 +4,21 @@ using System.Collections;
 public class Camera : MonoBehaviour {
 
 	public float speed;
+	public float accel;
+	private float time;
+	private float currentSpeed;
 
-	// Use this for initialization
-	void Start () {
-		
+
+	void Start() {
+		time = 0;
+		currentSpeed = speed;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		float dt = Time.deltaTime;
-		transform.Translate(0, -dt*speed, 0);
+		time += dt;
+
+		transform.Translate(0, -dt*currentSpeed, 0);
+		currentSpeed = speed + time*accel/10;
 	}
 }

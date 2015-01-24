@@ -18,10 +18,10 @@ public class Background : MonoBehaviour {
 		camera = GameObject.FindWithTag("MainCamera");
 		spriteHeight = -bgsprite.bounds.size.y * 2.5f;
 
-		bgspritelist.AddFirst( this.Instantiate (bgprefab) as Transform);
+		bgspritelist.AddFirst( Instantiate (bgprefab) as Transform);
 		bgspritelist.First.Value.Translate(0,-spriteHeight,0);
-		bgspritelist.AddFirst( this.Instantiate (bgprefab) as Transform);
-		bgspritelist.AddFirst( this.Instantiate (bgprefab) as Transform);
+		bgspritelist.AddFirst( Instantiate (bgprefab) as Transform);
+		bgspritelist.AddFirst( Instantiate (bgprefab) as Transform);
 		bgspritelist.First.Value.Translate(0,spriteHeight,0);
 	}
 

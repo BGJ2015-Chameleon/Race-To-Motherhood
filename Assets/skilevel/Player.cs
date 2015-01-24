@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
 		Vector3 gyro = Input.gyro.rotationRate;
 		gyro.x = gyro.y;
 		gyro.y = 0;
+		gyro.z = 0;
 		transform.Translate (gyro/10);
 		Vector3 pos = transform.localPosition;
 		float clamped = clamp (pos.x, -2, 2);
