@@ -3,9 +3,13 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	public float jumpDuration;
+
+	private bool isJumping;
+
 	void Start () {
 		Input.gyro.enabled = true;
-		Screen.orientation = ScreenOrientation.Portrait;
+		isJumping = false;
 	}
 
 	float clamp(float v, float min, float max){
@@ -18,6 +22,13 @@ public class Player : MonoBehaviour {
 	} 
 
 	void Update () {
+
+		Move ();
+
+
+	}
+
+	void Move(){
 		Vector3 gyro = Input.gyro.rotationRate;
 		gyro.x = gyro.y;
 		gyro.y = 0;
@@ -27,5 +38,20 @@ public class Player : MonoBehaviour {
 		float clamped = clamp (pos.x, -2, 2);
 		pos.x = clamped;
 		transform.localPosition = pos;
+	}
+
+
+	void OnTriggerEnter2D(Collider2D other){
+		switch (other.name) {
+		case "Jump":
+			Jump();
+			break;
+		}
+	}
+
+	void Jump(){
+
+		isJumping = true;
+
 	}
 }

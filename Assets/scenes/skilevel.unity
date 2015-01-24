@@ -343,6 +343,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1295327359}
   - 114: {fileID: 1295327358}
+  - 61: {fileID: 1295327360}
+  - 50: {fileID: 1295327361}
   m_Layer: 0
   m_Name: Skiier
   m_TagString: Untagged
@@ -361,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c97b6f66f4b2546993824dc409292a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpDuration: 0
 --- !u!4 &1295327359
 Transform:
   m_ObjectHideFlags: 0
@@ -378,6 +381,32 @@ Transform:
   - {fileID: 2007087585}
   m_Father: {fileID: 21971203}
   m_RootOrder: 0
+--- !u!61 &1295327360
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1295327357}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .033213634, y: .0512536541}
+  m_Center: {x: .00136180222, y: .282204419}
+--- !u!50 &1295327361
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1295327357}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
 --- !u!1 &1358207122
 GameObject:
   m_ObjectHideFlags: 0
