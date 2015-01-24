@@ -5,7 +5,6 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		Input.gyro.enabled = true;
-		print (Input.gyro.enabled);
 		Screen.orientation = ScreenOrientation.Portrait;
 	}
 
