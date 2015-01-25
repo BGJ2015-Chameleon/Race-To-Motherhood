@@ -47,7 +47,7 @@ public class logo_GlobalGameJam : MonoBehaviour {
 						
 						if(nextSprite >= sprites.Length ){
 						Debug.Log("Intro finished. Loading menu");
-						Application.LoadLevel("mainmenu");
+						Application.LoadLevel("menuToSki");
 						}
 						else {
 						logo.sprite = sprites[nextSprite];

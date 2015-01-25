@@ -56,10 +56,26 @@ public class Player : MonoBehaviour {
 		}
 		return v;
 	} 
-	
+
 	void Update () {
 		float dt = Time.deltaTime;
 		timeToContraction -= dt;
+
+		if (birthDanger) {
+			for(int i = 0; i < Input.touchCount; i++){
+				if (Input.GetTouch(i).phase == TouchPhase.Began){
+					birthDanger = false;
+					redGirl.GetComponent<Animator>().SetTrigger("Switch");
+					bluGirl.GetComponent<Animator>().SetTrigger("Switch");
+					timeToContraction = Random.Range(15.0f,30.0f);
+					break;
+				}
+			}
+			if(timeToContraction < -0.5f){
+				Application.LoadLevel("mainmenu");
+				return;
+			}
+		}
 
 		if (timeToContraction < 0 && !birthDanger) {
 			audio.PlayOneShot(sounds[3]);
@@ -72,11 +88,6 @@ public class Player : MonoBehaviour {
 			transform.Translate(0, -dt * currentSpeed, 0);
 		}
 		currentSpeed += (accel/10)*dt;
-
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			redGirl.GetComponent<Animator>().SetTrigger("Switch");
-			bluGirl.GetComponent<Animator>().SetTrigger("Switch");
-		}
 
 		if (!isJumping) {
 			Move ();
@@ -91,7 +102,6 @@ public class Player : MonoBehaviour {
 			if(!isJumping){
 				transform.Find ("TrailLeft").GetComponent<TrailRenderer> ().enabled = true;
 				transform.Find ("TrailRight").GetComponent<TrailRenderer> ().enabled = true;
-				rigidbody2D.WakeUp();
 				audio.PlayOneShot(sounds[2]);
 
 			}

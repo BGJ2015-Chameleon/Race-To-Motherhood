@@ -150,7 +150,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 30841042}
-        m_MethodName: NewGame
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ffacafa4fbf8d448a59109789de968e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: skilevel
 --- !u!1 &360030202
 GameObject:
   m_ObjectHideFlags: 0

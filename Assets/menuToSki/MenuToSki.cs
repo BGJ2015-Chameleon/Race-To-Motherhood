@@ -37,7 +37,7 @@ public class MenuToSki : MonoBehaviour {
 		if (wait < t) {
 			c++;
 			if(c >= clones.Length){
-				Application.LoadLevel("skilevel");
+				Application.LoadLevel("mainmenu");
 				return;
 			}
 			for(int i = 0; i < clones.Length; i++){
