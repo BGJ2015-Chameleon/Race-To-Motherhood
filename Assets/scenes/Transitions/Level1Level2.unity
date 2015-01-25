@@ -150,6 +150,7 @@ GameObject:
   - 224: {fileID: 142360174}
   - 222: {fileID: 142360176}
   - 114: {fileID: 142360175}
+  - 114: {fileID: 142360177}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -206,6 +207,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 142360173}
+--- !u!114 &142360177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 142360173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b92e30291946ce44987575a4a55a0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hits: {fileID: 142360175}
 --- !u!1 &215754964
 GameObject:
   m_ObjectHideFlags: 0

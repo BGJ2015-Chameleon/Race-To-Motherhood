@@ -19,5 +19,6 @@ public class SkiGoal : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		levelDone = true;
+		Score.EndTimer ();
 	}
 }

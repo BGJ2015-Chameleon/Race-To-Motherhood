@@ -57,6 +57,7 @@ public class Player : MonoBehaviour {
 		crashes = 0;
 		timeStart = Time.timeSinceLevelLoad;
 		Score.ResetScore ();
+		Score.StartTimer ();
 	}
 
 	float clamp(float v, float min, float max){
@@ -156,7 +157,6 @@ public class Player : MonoBehaviour {
 				audio.PlayOneShot (sounds [1]);
 				currentSpeed /= 4;
 				Score.crashes++;
-			print (Score.crashes);
 				break;
 		}
 	}
