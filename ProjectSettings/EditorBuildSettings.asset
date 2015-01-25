@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/scenes/Interfaces/Credits.unity
   - enabled: 1
     path: Assets/scenes/Levels/Level2.unity
+  - enabled: 1
+    path: Assets/scenes/Transitions/Level1Level2.unity
