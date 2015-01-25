@@ -12,7 +12,7 @@ public class Level2_Goal : MonoBehaviour {
 		
 		t += Time.deltaTime;
 		if (t > 2) {
-			Application.LoadLevel("mainmenu");
+			Application.LoadLevel("EndTransition");
 		}
 	}
 	
