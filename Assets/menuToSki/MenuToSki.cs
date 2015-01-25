@@ -3,24 +3,45 @@ using System.Collections;
 
 public class MenuToSki : MonoBehaviour {
 
-	private float t;
+	public Transform[] slides;
+	public float[] timePerSlide;
 
-	// Use this for initialization
+	public Transform[] clones;
+
+	private Vector3 spriteOffset;
+	private float wait;
+	private int c;
 	void Start () {
-//		t = 5;
-//		guiText.text = "Get ready: 5";
+		clones = new Transform[4];
+
+
+		for (int i = 0; i < slides.Length; i++) {
+			clones[i] = Instantiate(slides[i]) as Transform;
+		}
+		float spriteWidth = clones [0].GetComponent<SpriteRenderer> ().bounds.size.x;
+		spriteOffset = new Vector3 (spriteWidth, 0, 0);
+		for (int i = 0; i < clones.Length; i++){
+			clones[i].localPosition = spriteOffset * i;
+		}
+
+		wait = timePerSlide [0];
+		c = 0;
 	}
 
 
-
-	// Update is called once per frame
 	void Update () {
-//		print ("test");
-//		float dt = Time.deltaTime;
-//		t -= dt;
-//		if (t < 0) {
-			Application.LoadLevel("skilevel");
-//		}
-//		guiText.text = "Get ready: " + Mathf.CeilToInt (t);
+		float t = Time.time;
+
+		if (wait < t) {
+			c++;
+			if(c >= clones.Length){
+				Application.LoadLevel("skilevel");
+				return;
+			}
+			for(int i = 0; i < clones.Length; i++){
+				clones[i].localPosition = spriteOffset * (i-c);
+			}
+			wait += timePerSlide[c];
+		}
 	}
 }
