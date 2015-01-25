@@ -37,7 +37,7 @@ public class Background : MonoBehaviour {
 		Transform cottage = Instantiate (cottageprefab) as Transform;
 
 		cottage.SetParent (bgspritelist.First.Next.Value);
-		cottage.localPosition = new Vector3 (0,0,-19);
+		cottage.localPosition = new Vector3 (0,0,-11);
 	}
 
 

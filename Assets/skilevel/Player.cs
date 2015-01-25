@@ -24,6 +24,8 @@ public class Player : MonoBehaviour {
 	private Vector3 shadowScale;
 	private Vector3 shadowPos;
 
+	private float timeToContraction;
+	private bool birthDanger;
 
 	void Start () {
 		Input.gyro.enabled = true;
@@ -36,11 +38,14 @@ public class Player : MonoBehaviour {
 		shadowScale = shadow.localScale;
 		shadowPos = shadow.localPosition;
 
-		redGirl = transform.Find ("RedGirl").gameObject;
-		bluGirl = transform.Find ("BlueGirl").gameObject;
+		redGirl = transform.Find ("RedGirl").GetChild(0).gameObject;
+		bluGirl = transform.Find ("BlueGirl").GetChild(0).gameObject;
 
 		Jump (); // for dramatic effect
 		audio.PlayOneShot (sounds [1]);
+
+		timeToContraction = Random.Range (10.0f, 25.0f);
+		birthDanger = false;
 	}
 
 	float clamp(float v, float min, float max){
@@ -54,6 +59,13 @@ public class Player : MonoBehaviour {
 	
 	void Update () {
 		float dt = Time.deltaTime;
+		timeToContraction -= dt;
+
+		if (timeToContraction < 0 && !birthDanger) {
+			audio.PlayOneShot(sounds[3]);
+			birthDanger = true;
+		}
+
 		if (Camera.main.transform.localPosition.y > -500) {
 				Camera.main.transform.Translate (0, -dt * currentSpeed, 0);
 		} else {
