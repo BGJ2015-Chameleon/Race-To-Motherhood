@@ -721,7 +721,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Lars Erik Helgemo\nJan Christian Heigl\nJon-Inge Etternavn\nDan-Eric N\xE6ss\nKrister
+  m_Text: "Lars Erik Helgemo\nJan Christian Heigl\nJon Inge Lomeland\nDan-Eric N\xE6ss\nKrister
     Berntsen\n"
 --- !u!222 &1944128628
 CanvasRenderer:
