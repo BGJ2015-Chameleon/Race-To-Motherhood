@@ -38,6 +38,8 @@ public class Bike : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		switch (other.name) {
 		case "SelfieGirl":
+		case "Trashcan":
+		case "Bench":
 			other.enabled = false;
 			currentSpeed /= 4;
 			break;
@@ -53,7 +55,7 @@ public class Bike : MonoBehaviour {
 		gyro.x = 0;
 		transform.Translate (gyro/10);
 		Vector3 pos = transform.localPosition;
-		float clamped = clamp (pos.y, -2, 2);
+		float clamped = clamp (pos.y, -5f, 3.5f);
 		pos.y = clamped;
 		transform.localPosition = pos;
 	}

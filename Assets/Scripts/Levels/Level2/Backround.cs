@@ -44,11 +44,11 @@ public class Backround : MonoBehaviour {
 	void NewChunk(Transform clone) {
 		
 
-		if (Random.value > 0.001) {
+		if (Random.value > 0.10) {
 
 			Transform Bench;
 
-			if(Random.value > 0.5){
+			if(Random.value > 0.8){
 				Bench = Instantiate (OldWomanBenchPrefab) as Transform;
 			}
 			else {
@@ -59,14 +59,14 @@ public class Backround : MonoBehaviour {
 			//EmptyBench.GetChild((int)Mathf.Round(Random.value)).gameObject.GetComponent<SpriteRenderer>().enabled = true;
 		}
 
-		if (Random.value > 0.001) {
+		if (Random.value > 0.50) {
 			Transform SelfieGirl = Instantiate (SelfieGirlPrefab) as Transform;
 			SelfieGirl.SetParent (clone);
 			SelfieGirl.transform.localPosition = new Vector3 (Random.Range (-0.5f, 0.5f), Random.Range (-0.483f, 0.378f), 11);
 			//EmptyBench.GetChild((int)Mathf.Round(Random.value)).gameObject.GetComponent<SpriteRenderer>().enabled = true;
 		}
 
-		if (Random.value > 0.001) {
+		if (Random.value > 0.50) {
 			Transform Trashbin = Instantiate (TrahsBinPrefab) as Transform;
 			Trashbin.SetParent (clone);
 			Trashbin.transform.localPosition = new Vector3 (Random.Range (-0.5f, 0.5f), Random.Range (-0.3f, -0.524f), 0);
