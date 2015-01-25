@@ -7,6 +7,9 @@ public class SkiLevelManager : MonoBehaviour {
 	public Transform goalprefab;
 
 	public int wait;
+
+	public Transform[] signs;
+
 	public AudioClip[] startsfx;
 	public AudioClip music;
 	public AudioClip explosion;
@@ -37,6 +40,20 @@ public class SkiLevelManager : MonoBehaviour {
 		goal.localPosition = new Vector3(0,-505,0);
 	}
 	
+
+	float cubicOutIn( float k ){
+		if (k < 0.5f) {
+			k *= 2;
+			return (--k * k * k * k * k + 1)/2;
+		}
+		k = (k - 0.5f) * 2;
+		return 0.5f + (k * k * k * k * k)/2;
+	}
+
+	int oldI = -1;
+	Transform cSign;
+	Vector3 cPos;
+	Vector3 tPos = new Vector3(0,10,0);
 	void Update () {
 		if (started) {
 			return;
@@ -45,15 +62,35 @@ public class SkiLevelManager : MonoBehaviour {
 		if (go) {
 			Transform ply = Instantiate(player) as Transform;
 			ply.SetParent(Camera.main.transform);
-			ply.localPosition = new Vector3(0,0,5);
+			ply.localPosition = new Vector3(0,0,15);
 			started = true;
 			return;
 		} 
-
-		int intT = (int)Time.timeSinceLevelLoad;
+		float t = Time.timeSinceLevelLoad;
+		int intT = (int)t;
 		if (intT < wait) {
+			float sTime = wait/signs.Length*0.8f;
+			float pTime = wait*0.1f;
+			if(t > pTime){
+				int index = (int)((t-pTime)/sTime);
+				if(oldI < index){
+					if(cSign != null){ Destroy(cSign.gameObject); }
+					if( (index) < signs.Length  ){
+						cSign = Instantiate(signs[index]) as Transform;
+						cSign.Translate(0,5,-10);
+						cPos = cSign.localPosition;
+					}
+					oldI = index;
+				}
 
+				if( index < signs.Length ){
+					float x = cubicOutIn((t-pTime-sTime*index)/sTime );
+					cSign.localPosition = cPos - tPos * x;
+				}
+
+			}
 		} else if(oldT < intT){
+			if(cSign != null){ Destroy(cSign.gameObject); }
 			int index = intT - wait;
 			go = index == 3;
 			if(go){
