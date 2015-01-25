@@ -26,7 +26,7 @@ public class Backround : MonoBehaviour {
 	void InitBGSprite(){
 		bgspritelist = new LinkedList<Transform> ();
 		SpriteRenderer sprite = Terrain.GetComponent <SpriteRenderer> ();
-		spriteWidth = sprite.bounds.size.x;
+		spriteWidth = sprite.bounds.size.y;
 		spriteCount = 0;
 		for (int i = -3; i < 3; i++) {
 			Transform clone = Instantiate (Terrain) as Transform;
@@ -81,9 +81,9 @@ public class Backround : MonoBehaviour {
 
 	void UpdateBGSprite(){
 
-		float camX = ((camera.transform.position.x)/spriteWidth)+1;
+		float camY = ((camera.transform.position.y + 2.5f)/spriteWidth)+1;
 		
-		int newSpriteCount = (int)camX;
+		int newSpriteCount = (int)camY;
 		if (newSpriteCount > spriteCount) {
 			Transform clone = Instantiate (Terrain) as Transform;
 			clone.Translate(spriteWidth*(newSpriteCount+1),0,0);
