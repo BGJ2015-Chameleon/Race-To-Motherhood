@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/scenes/skilevel.unity
   - enabled: 1
     path: Assets/scenes/Interfaces/Credits.unity
+  - enabled: 1
+    path: Assets/scenes/Levels/Level2.unity

@@ -13,13 +13,15 @@ public class MenuToSki : MonoBehaviour {
 	private int c;
 	void Start () {
 		clones = new Transform[4];
-
+		float height = Camera.main.orthographicSize * 2.0f;
+		float width = height * Screen.width / Screen.height;
 
 		for (int i = 0; i < slides.Length; i++) {
 			clones[i] = Instantiate(slides[i]) as Transform;
+			clones[i].localScale = new Vector3(width/4, height/5, 0.1f);
 		}
 		float spriteWidth = clones [0].GetComponent<SpriteRenderer> ().bounds.size.x;
-		spriteOffset = new Vector3 (spriteWidth, 0, 0);
+		spriteOffset = new Vector3 (spriteWidth, -height/2, 0);
 		for (int i = 0; i < clones.Length; i++){
 			clones[i].localPosition = spriteOffset * i;
 		}
@@ -30,7 +32,7 @@ public class MenuToSki : MonoBehaviour {
 
 
 	void Update () {
-		float t = Time.time;
+		float t = Time.timeSinceLevelLoad;
 
 		if (wait < t) {
 			c++;
