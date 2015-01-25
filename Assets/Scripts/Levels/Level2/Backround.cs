@@ -24,7 +24,7 @@ public class Backround : MonoBehaviour {
 		InitBGSprite ();
 
 		Transform goal = Instantiate(GoalPrefab) as Transform;
-		goal.localPosition = new Vector3(0,57,0);
+		goal.localPosition = new Vector3(0,507,0);
 	}
 
 	void InitBGSprite(){

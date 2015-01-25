@@ -9,6 +9,7 @@ public class Bike : MonoBehaviour {
 	GameObject alert;
 	GameObject RedGirl, BlueGirl;
 	Animator RedGirlAnim, BlueGirlAnim;
+	public AudioClip[] sounds;
 
 	private float timeToContraction;
 	private bool birthDanger;
@@ -50,14 +51,14 @@ public class Bike : MonoBehaviour {
 		}
 
 		if (timeToContraction < 0 && !birthDanger) {
-			//audio.PlayOneShot(sounds[3]);
+			audio.PlayOneShot(sounds[0]);
 			birthDanger = true;
 		}
 
 		//camera
 
 	
-		if (Camera.main.transform.localPosition.y < 50) {
+		if (Camera.main.transform.localPosition.y < 500) {
 			Camera.main.transform.Translate (0, dt * currentSpeed, 0);
 		} else {
 			this.transform.Translate(dt * currentSpeed, 0, 0);
@@ -96,6 +97,8 @@ public class Bike : MonoBehaviour {
 		case "Bench":
 			other.enabled = false;
 			currentSpeed /= 4;
+			audio.PlayOneShot(sounds[1]);
+
 			break;
 		}
 	}

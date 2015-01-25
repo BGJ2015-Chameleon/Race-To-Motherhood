@@ -39,8 +39,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .287049711, y: 1.93337476}
-  m_Center: {x: .564160943, y: -.048448924}
+  m_Size: {x: .422211081, y: 1.76761091}
+  m_Center: {x: .124253809, y: -.0114699053}
 --- !u!114 &11487804
 MonoBehaviour:
   m_ObjectHideFlags: 1
