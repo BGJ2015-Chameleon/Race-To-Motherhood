@@ -30,6 +30,10 @@ public class Player : MonoBehaviour {
 	private float timeToContraction;
 	private bool birthDanger;
 
+	private int crashes;
+	private float timeStart;
+	private float timeEnd;
+
 	void Start () {
 		Input.gyro.enabled = true;
 		isJumping = false;
@@ -49,6 +53,10 @@ public class Player : MonoBehaviour {
 
 		timeToContraction = Random.Range (10.0f, 25.0f);
 		birthDanger = false;
+
+		crashes = 0;
+		timeStart = Time.timeSinceLevelLoad;
+		Score.ResetScore ();
 	}
 
 	float clamp(float v, float min, float max){
@@ -132,7 +140,7 @@ public class Player : MonoBehaviour {
 		switch (other.name) {
 			case "Jump":
 				if (!isJumping) {
-						Jump ();
+					Jump ();
 				}
 				break;
 			case "Bush":
@@ -141,11 +149,14 @@ public class Player : MonoBehaviour {
 				} else {
 					currentSpeed /= 2;
 					audio.PlayOneShot (sounds [1]);
+					Score.crashes++;
 				}
 				break;
 			case "Tree":
 				audio.PlayOneShot (sounds [1]);
 				currentSpeed /= 4;
+				Score.crashes++;
+			print (Score.crashes);
 				break;
 		}
 	}
