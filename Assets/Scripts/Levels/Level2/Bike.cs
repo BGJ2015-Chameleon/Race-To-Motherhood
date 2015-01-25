@@ -6,21 +6,61 @@ public class Bike : MonoBehaviour {
 	public float speed;
 	public float accel;
 	private float currentSpeed;
+	GameObject alert;
+	GameObject RedGirl, BlueGirl;
+	Animator RedGirlAnim, BlueGirlAnim;
+
+	private float timeToContraction;
+	private bool birthDanger;
+
 
 	// Use this for initialization
 	void Start () {
 		Input.gyro.enabled = true;
 		currentSpeed = speed;
+		RedGirl = GameObject.Find ("2_RedGirl");
+		RedGirlAnim = RedGirl.GetComponent <Animator> ();
+		BlueGirl = GameObject.Find ("2_BlueGirl");
+		BlueGirlAnim = BlueGirl.GetComponent <Animator> ();
+
+		timeToContraction = Random.Range (10.0f, 25.0f);
+		birthDanger = false;
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		float dt = Time.deltaTime;
+		timeToContraction -= dt;
+
+		if (birthDanger) {
+			for(int i = 0; i < Input.touchCount; i++){
+				if (Input.GetTouch(i).phase == TouchPhase.Began){
+					birthDanger = false;
+					RedGirlAnim.SetTrigger("switch");
+					BlueGirlAnim.SetTrigger("switch");
+					timeToContraction = Random.Range(15.0f,30.0f);
+					break;
+				}
+			}
+			if(timeToContraction <= -1f){
+				Application.LoadLevel("mainmenu");
+				return;
+			}
+		}
+
+		if (timeToContraction < 0 && !birthDanger) {
+			//audio.PlayOneShot(sounds[3]);
+			birthDanger = true;
+		}
+
+
 		transform.parent.Translate(dt*currentSpeed, 0, 0);
 		currentSpeed += (accel/10)*dt;
 
 		Move ();
+
+
 
 
 
@@ -35,6 +75,10 @@ public class Bike : MonoBehaviour {
 		return v;
 	}
 
+	public bool isInDanger(){
+		return birthDanger;
+	}
+
 	void OnTriggerEnter2D(Collider2D other){
 		switch (other.name) {
 		case "SelfieGirl":
@@ -46,11 +90,13 @@ public class Bike : MonoBehaviour {
 		}
 	}
 
+	public void FailedQuickTimeEvent(){
+		currentSpeed /= 4;
+	}
+
+
+
 	void Move(){
-		if (Input.touchCount > 0){
-
-		}
-
 		Vector3 gyro = Input.gyro.rotationRate;
 		gyro.x = 0;
 		transform.Translate (gyro/10);
@@ -59,5 +105,4 @@ public class Bike : MonoBehaviour {
 		pos.y = clamped;
 		transform.localPosition = pos;
 	}
-
 }
