@@ -12,6 +12,8 @@ GameObject:
   - 95: {fileID: 9588734}
   - 61: {fileID: 6125612}
   - 114: {fileID: 11416602}
+  - 114: {fileID: 11480140}
+  - 114: {fileID: 11499514}
   m_Layer: 0
   m_Name: Level2_SelfieGirlPrefab
   m_TagString: Untagged
@@ -69,6 +71,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myName: SelfieGirl
+--- !u!114 &11480140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a0676af76e169418d9c99e42df7a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11499514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028fa2a88a5d0244a91f6e3aa6a2228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerOrder: -1
 --- !u!212 &21288734
 SpriteRenderer:
   m_ObjectHideFlags: 1

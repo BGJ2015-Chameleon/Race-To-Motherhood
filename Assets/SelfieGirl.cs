@@ -10,11 +10,12 @@ public class SelfieGirl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 
+
+
 	void OnTriggerEnter2D(Collider2D other){
-		
 		Animator animator = GetComponent <Animator>();
 		animator.SetTrigger ("Hit");
 	}

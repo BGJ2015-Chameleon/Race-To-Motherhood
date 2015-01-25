@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 411424}
   - 212: {fileID: 21211424}
+  - 114: {fileID: 11416826}
   m_Layer: 0
   m_Name: Level2_EmptyBench
   m_TagString: Untagged
@@ -28,6 +29,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11416826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028fa2a88a5d0244a91f6e3aa6a2228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerOrder: -2
 --- !u!212 &21211424
 SpriteRenderer:
   m_ObjectHideFlags: 1

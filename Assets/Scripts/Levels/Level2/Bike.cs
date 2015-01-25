@@ -38,7 +38,7 @@ public class Bike : MonoBehaviour {
 
 		switch (other.name) {
 		case "SelfieGirl":
-
+		
 			currentSpeed /= 4;
 			break;
 		}

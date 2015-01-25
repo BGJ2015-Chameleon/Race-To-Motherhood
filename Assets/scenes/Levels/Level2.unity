@@ -84,6 +84,7 @@ GameObject:
   - 4: {fileID: 540054356}
   - 212: {fileID: 540054355}
   - 95: {fileID: 540054357}
+  - 114: {fileID: 540054358}
   m_Layer: 9
   m_Name: 2_Bike
   m_TagString: Untagged
@@ -110,7 +111,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 9
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 1c313331a407ac843a694f453793d733, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &540054356
@@ -140,6 +141,18 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &540054358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 540054354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028fa2a88a5d0244a91f6e3aa6a2228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerOrder: -1
 --- !u!1 &765526488
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +260,7 @@ GameObject:
   - 4: {fileID: 1019561813}
   - 212: {fileID: 1019561814}
   - 95: {fileID: 1019561815}
+  - 114: {fileID: 1019561816}
   m_Layer: 9
   m_Name: 2_RedGirl
   m_TagString: Untagged
@@ -285,7 +299,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 00ded49bbf4b45a4d837c37f3928f19a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &1019561815
@@ -303,6 +317,18 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1019561816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019561812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028fa2a88a5d0244a91f6e3aa6a2228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerOrder: 0
 --- !u!1 &1366769890
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e853d7366a4404997dffd451cd1320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 8
+  accel: 10
 --- !u!1 &1455622635
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +455,7 @@ GameObject:
   - 4: {fileID: 2059838409}
   - 212: {fileID: 2059838410}
   - 95: {fileID: 2059838411}
+  - 114: {fileID: 2059838412}
   m_Layer: 9
   m_Name: 2_BlueGirl
   m_TagString: Untagged
@@ -466,7 +494,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 13f824dea8d510c4495ac28b7bdc9cc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!95 &2059838411
@@ -484,3 +512,15 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &2059838412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2059838408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a028fa2a88a5d0244a91f6e3aa6a2228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerOrder: 0
