@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 		Jump (); // for dramatic effect
 		audio.PlayOneShot (sounds [1]);
 
-		timeToContraction = Random.Range (10.0f, 25.0f);
+		timeToContraction = Random.Range (10.0f, 15.0f);
 		birthDanger = false;
 
 		crashes = 0;
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour {
 					transform.Find ("Warning").GetComponent<SpriteRenderer>().enabled = false;
 					redGirl.GetComponent<Animator>().SetTrigger("Switch");
 					bluGirl.GetComponent<Animator>().SetTrigger("Switch");
-					timeToContraction = Random.Range(15.0f,30.0f);
+					timeToContraction = Random.Range(10.0f,15.0f);
 					break;
 				}
 			}

@@ -504,7 +504,7 @@ MonoBehaviour:
   jumpDuration: 1.5
   speed: 8
   accel: 8
-  maxSpeed: 22
+  maxSpeed: 16
   minSpeed: 2
   reactionTime: 2
   sounds:
