@@ -24,7 +24,7 @@ public class Backround : MonoBehaviour {
 		InitBGSprite ();
 
 		Transform goal = Instantiate(GoalPrefab) as Transform;
-		goal.localPosition = new Vector3(0,507,0);
+		goal.localPosition = new Vector3(0,1007,0);
 	}
 
 	void InitBGSprite(){
@@ -73,7 +73,7 @@ public class Backround : MonoBehaviour {
 		if (Random.value > 0.50) {
 			Transform Trashbin = Instantiate (TrahsBinPrefab) as Transform;
 			Trashbin.SetParent (clone);
-			Trashbin.transform.localPosition = new Vector3 (Random.Range (-0.5f, 0.5f), Random.Range (-0.3f, -0.524f), 0);
+			Trashbin.transform.localPosition = new Vector3 (Random.Range (-0.5f, 0.5f), Random.Range (-0.483f, 0.378f), 0);
 			//EmptyBench.GetChild((int)Mathf.Round(Random.value)).gameObject.GetComponent<SpriteRenderer>().enabled = true;
 		}
 

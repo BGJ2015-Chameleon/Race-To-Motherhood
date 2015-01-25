@@ -5,6 +5,8 @@ public class Bike : MonoBehaviour {
 
 	public float speed;
 	public float accel;
+	public float maxSpeed;
+	public float minSpeed;
 	private float currentSpeed;
 	GameObject alert;
 	GameObject RedGirl, BlueGirl;
@@ -24,7 +26,7 @@ public class Bike : MonoBehaviour {
 		BlueGirl = GameObject.Find ("2_BlueGirl");
 		BlueGirlAnim = BlueGirl.GetComponent <Animator> ();
 
-		timeToContraction = Random.Range (10.0f, 25.0f);
+		timeToContraction = Random.Range (10.0f, 15.0f);
 		birthDanger = false;
 	
 	}
@@ -40,7 +42,7 @@ public class Bike : MonoBehaviour {
 					birthDanger = false;
 					RedGirlAnim.SetTrigger("switch");
 					BlueGirlAnim.SetTrigger("switch");
-					timeToContraction = Random.Range(15.0f,30.0f);
+					timeToContraction = Random.Range(10.0f,15.0f);
 					break;
 				}
 			}
@@ -58,7 +60,7 @@ public class Bike : MonoBehaviour {
 		//camera
 
 	
-		if (Camera.main.transform.localPosition.y < 500) {
+		if (Camera.main.transform.localPosition.y < 1000) {
 			Camera.main.transform.Translate (0, dt * currentSpeed, 0);
 		} else {
 			this.transform.Translate(dt * currentSpeed, 0, 0);
@@ -68,6 +70,7 @@ public class Bike : MonoBehaviour {
 
 		
 		currentSpeed += (accel/10)*dt;
+		currentSpeed = clamp (currentSpeed, minSpeed, maxSpeed);
 
 		Move ();
 
