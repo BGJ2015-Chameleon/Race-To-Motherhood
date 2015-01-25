@@ -38,6 +38,7 @@ public class Backround : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		UpdateBGSprite ();
+
 	}
 
 	void NewChunk(Transform clone) {

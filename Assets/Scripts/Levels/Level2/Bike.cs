@@ -21,6 +21,9 @@ public class Bike : MonoBehaviour {
 		currentSpeed += (accel/10)*dt;
 
 		Move ();
+
+
+
 	}
 
 	float clamp(float v, float min, float max){
@@ -33,18 +36,19 @@ public class Bike : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-
-		Debug.Log (other.name);
-
 		switch (other.name) {
 		case "SelfieGirl":
-		
+			other.enabled = false;
 			currentSpeed /= 4;
 			break;
 		}
 	}
 
 	void Move(){
+		if (Input.touchCount > 0){
+
+		}
+
 		Vector3 gyro = Input.gyro.rotationRate;
 		gyro.x = 0;
 		transform.Translate (gyro/10);
