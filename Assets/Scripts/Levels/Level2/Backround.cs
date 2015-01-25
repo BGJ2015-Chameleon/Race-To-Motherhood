@@ -8,6 +8,7 @@ public class Backround : MonoBehaviour {
 	public Transform OldWomanBenchPrefab;
 	public Transform SelfieGirlPrefab;
 	public Transform TrahsBinPrefab;
+	public Transform GoalPrefab;
 
 	LinkedList<Transform> bgspritelist;
 
@@ -21,6 +22,9 @@ public class Backround : MonoBehaviour {
 	void Start () {
 		camera = GameObject.FindWithTag("MainCamera");
 		InitBGSprite ();
+
+		Transform goal = Instantiate(GoalPrefab) as Transform;
+		goal.localPosition = new Vector3(0,57,0);
 	}
 
 	void InitBGSprite(){

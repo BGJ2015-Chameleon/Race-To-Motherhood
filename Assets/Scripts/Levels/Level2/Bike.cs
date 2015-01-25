@@ -56,7 +56,16 @@ public class Bike : MonoBehaviour {
 
 		//camera
 
-		Camera.main.transform.Translate(0, dt*currentSpeed, 0);
+	
+		if (Camera.main.transform.localPosition.y < 50) {
+			Camera.main.transform.Translate (0, dt * currentSpeed, 0);
+		} else {
+			this.transform.Translate(dt * currentSpeed, 0, 0);
+		}
+
+			
+
+		
 		currentSpeed += (accel/10)*dt;
 
 		Move ();
@@ -101,6 +110,7 @@ public class Bike : MonoBehaviour {
 		Vector3 gyro = Input.gyro.rotationRate;
 		gyro.x = 0;
 		gyro.z = 0;
+		gyro.y = -1 * gyro.y;
 		transform.Translate (gyro/10);
 		Vector3 pos = transform.localPosition;
 		float clamped = clamp (pos.x, -3, 5);
