@@ -149,6 +149,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &186022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 486022}
+  - 212: {fileID: 21286022}
+  m_Layer: 0
+  m_Name: Warning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &434592
 Transform:
   m_ObjectHideFlags: 1
@@ -201,6 +217,7 @@ Transform:
   - {fileID: 434600}
   - {fileID: 453368}
   - {fileID: 453366}
+  - {fileID: 486022}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &434600
@@ -265,6 +282,18 @@ Transform:
   - {fileID: 434604}
   m_Father: {fileID: 434598}
   m_RootOrder: 4
+--- !u!4 &486022
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0037, y: .441799998, z: 0}
+  m_LocalScale: {x: .300000012, y: .300000012, z: 1}
+  m_Children: []
+  m_Father: {fileID: 434598}
+  m_RootOrder: 6
 --- !u!50 &5034604
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -474,7 +503,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpDuration: 1.5
   speed: 8
-  accel: 5
+  accel: 8
+  maxSpeed: 22
+  minSpeed: 2
+  reactionTime: 2
   sounds:
   - {fileID: 8300000, guid: e0a4cd71acc31de4088175f0accf558c, type: 3}
   - {fileID: 8300000, guid: d1784c719d3387d41b355fe41fd32546, type: 3}
@@ -595,6 +627,28 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: 0ca2d9d74a70fe042af174dd7778907e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!212 &21286022
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186022}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 038ecec390b1d4947bca0ea11a60e168, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

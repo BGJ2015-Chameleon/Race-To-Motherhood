@@ -7,7 +7,10 @@ public class Player : MonoBehaviour {
 
 	public float speed;
 	public float accel;
+	public float maxSpeed;
+	public float minSpeed;
 
+	public float reactionTime;
 
 	public AudioClip[] sounds;
 
@@ -65,13 +68,14 @@ public class Player : MonoBehaviour {
 			for(int i = 0; i < Input.touchCount; i++){
 				if (Input.GetTouch(i).phase == TouchPhase.Began){
 					birthDanger = false;
+					transform.Find ("Warning").GetComponent<SpriteRenderer>().enabled = false;
 					redGirl.GetComponent<Animator>().SetTrigger("Switch");
 					bluGirl.GetComponent<Animator>().SetTrigger("Switch");
 					timeToContraction = Random.Range(15.0f,30.0f);
 					break;
 				}
 			}
-			if(timeToContraction < -0.5f){
+			if(timeToContraction < -reactionTime){
 				Application.LoadLevel("mainmenu");
 				return;
 			}
@@ -80,6 +84,7 @@ public class Player : MonoBehaviour {
 		if (timeToContraction < 0 && !birthDanger) {
 			audio.PlayOneShot(sounds[3]);
 			birthDanger = true;
+			transform.Find ("Warning").GetComponent<SpriteRenderer>().enabled = true;
 		}
 
 		if (Camera.main.transform.localPosition.y > -500) {
@@ -88,6 +93,8 @@ public class Player : MonoBehaviour {
 			transform.Translate(0, -dt * currentSpeed, 0);
 		}
 		currentSpeed += (accel/10)*dt;
+		currentSpeed = clamp (currentSpeed, minSpeed, maxSpeed);
+
 
 		if (!isJumping) {
 			Move ();
