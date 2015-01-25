@@ -6,6 +6,8 @@ public class SkiLevelManager : MonoBehaviour {
 	public Transform player;
 	public Transform goalprefab;
 
+	public Transform[] numbers;
+
 	public int wait;
 
 	public Transform[] signs;
@@ -99,6 +101,8 @@ public class SkiLevelManager : MonoBehaviour {
 				audio.Play();
 			}
 			audio.PlayOneShot(startsfx[asOrder[index]]);
+			if(index < numbers.Length)
+				Instantiate(numbers[index]);
 			oldT = intT;
 
 		}
