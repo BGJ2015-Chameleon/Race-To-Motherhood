@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 488890}
   - 212: {fileID: 21288890}
   - 114: {fileID: 11415976}
+  - 61: {fileID: 6176056}
+  - 114: {fileID: 11476056}
   m_Layer: 0
   m_Name: Level2_OldWomanBench
   m_TagString: Untagged
@@ -29,6 +31,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6176056
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188890}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .319999993, y: .190785319}
+  m_Center: {x: 0, y: .0145639423}
 --- !u!114 &11415976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,6 +54,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LayerOrder: -2
+--- !u!114 &11476056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c407eb7185106d4e927d9c4f6e66360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myName: Bench
 --- !u!212 &21288890
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -60,7 +85,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 9db187d1acecf264e86f8b1e261ed052, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

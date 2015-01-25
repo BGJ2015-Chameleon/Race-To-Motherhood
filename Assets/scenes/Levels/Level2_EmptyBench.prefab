@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 411424}
   - 212: {fileID: 21211424}
   - 114: {fileID: 11416826}
+  - 61: {fileID: 6192860}
+  - 114: {fileID: 11492860}
   m_Layer: 0
   m_Name: Level2_EmptyBench
   m_TagString: Untagged
@@ -29,6 +31,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6192860
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111424}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .319999993, y: .171847895}
+  m_Center: {x: 0, y: .0050950679}
 --- !u!114 &11416826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,6 +54,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LayerOrder: -2
+--- !u!114 &11492860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c407eb7185106d4e927d9c4f6e66360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myName: Bench
 --- !u!212 &21211424
 SpriteRenderer:
   m_ObjectHideFlags: 1
