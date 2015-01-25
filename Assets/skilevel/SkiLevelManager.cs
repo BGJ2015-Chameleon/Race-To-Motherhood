@@ -4,6 +4,7 @@ using System.Collections;
 public class SkiLevelManager : MonoBehaviour {
 	
 	public Transform player;
+	public Transform goalprefab;
 
 	public int wait;
 	public AudioClip[] startsfx;
@@ -18,6 +19,10 @@ public class SkiLevelManager : MonoBehaviour {
 
 	private int oldT;
 
+	private float startPos;
+
+	private bool goalSpawned;
+
 	// Use this for initialization
 	void Start () {
 		time = 0;
@@ -25,8 +30,13 @@ public class SkiLevelManager : MonoBehaviour {
 		go = false;
 		started = false;
 		oldT = 0;
+		startPos = Camera.main.transform.localPosition.y;
+		goalSpawned = false;
+		
+		Transform goal = Instantiate(goalprefab) as Transform;
+		goal.localPosition = new Vector3(0,-505,0);
 	}
-
+	
 	void Update () {
 		if (started) {
 			return;

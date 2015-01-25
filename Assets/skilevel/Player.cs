@@ -54,8 +54,11 @@ public class Player : MonoBehaviour {
 	
 	void Update () {
 		float dt = Time.deltaTime;
-
-		Camera.main.transform.Translate(0, -dt*currentSpeed, 0);
+		if (Camera.main.transform.localPosition.y > -500) {
+				Camera.main.transform.Translate (0, -dt * currentSpeed, 0);
+		} else {
+			transform.Translate(0, -dt * currentSpeed, 0);
+		}
 		currentSpeed += (accel/10)*dt;
 
 		if (Input.GetKeyDown (KeyCode.Space)) {

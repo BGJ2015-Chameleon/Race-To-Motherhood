@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 434598, guid: 40ea1ed1475af0c44ba01f64894b9e8f, type: 2}
+  goalprefab: {fileID: 483536, guid: f276246c398c76842b25d4757755e651, type: 2}
   wait: 3
   startsfx:
   - {fileID: 8300000, guid: ea72288b8d451bf41abe3d079b55ab51, type: 3}
